@@ -1,4 +1,17 @@
 
+/*
+==================================
+DDL Script: Create Bronze Tables
+===============================================================================
+Script Purpose:
+  This script create tables in the 'silver' schema, dropping existing tables
+  we also add metadata column 'dwh_date_time' to each table
+  if they already exist.
+Run this script to re-define the DDL structure of 'silver' Table
+================================================================================
+
+
+*/
 IF OBJECT_ID('silver.crm_cust_info', 'U') IS NOT NULL
 	DROP TABLE silver.crm_cust_info;
 
