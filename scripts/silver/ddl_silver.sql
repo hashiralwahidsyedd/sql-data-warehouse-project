@@ -1,7 +1,7 @@
 
 /*
 ==================================
-DDL Script: Create Bronze Tables
+DDL Script: Create Silver Tables
 ===============================================================================
 Script Purpose:
   This script create tables in the 'silver' schema, dropping existing tables
@@ -88,7 +88,7 @@ GO
 
 CREATE TABLE silver.erp_loc_a101 (
 	cid NVARCHAR(50),
-	cnry NVARCHAR(50),
+	cntry NVARCHAR(50),
 	dwh_create_date DATETIME2 DEFAULT GETDATE()
 
 );
@@ -108,3 +108,4 @@ CREATE TABLE silver.erp_px_cat_g1v2(
 	dwh_create_date DATETIME2 DEFAULT GETDATE()
 
 );
+
