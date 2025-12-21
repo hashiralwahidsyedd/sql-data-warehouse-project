@@ -11,7 +11,6 @@ Run this script to re-define the DDL structure of 'silver' Table
 ================================================================================
 
 
-*/
 IF OBJECT_ID('silver.crm_cust_info', 'U') IS NOT NULL
 	DROP TABLE silver.crm_cust_info;
 
@@ -20,7 +19,7 @@ CREATE TABLE silver.crm_cust_info (
 	cst_key NVARCHAR(50),
 	cst_firstname NVARCHAR(50),
 	cst_lastname NVARCHAR(50),
-	cst_material_status NVARCHAR(50),
+	cst_marital_status NVARCHAR(50),
 	cst_gndr NVARCHAR(50),
 	cst_create_date DATE,
 	dwh_create_date DATETIME2 DEFAULT GETDATE()
@@ -34,12 +33,13 @@ GO
 
 CREATE TABLE silver.crm_prd_info (
 	prd_id INT,
+	cat_id NVARCHAR(50), --encrich data
 	prd_key NVARCHAR(50),
 	prd_nm NVARCHAR(50),
 	prd_cost INT,
 	prd_line NVARCHAR(20),
-	prd_start_dt DATETIME,
-	prd_end_dt DATETIME,
+	prd_start_dt DATE, --change from datetime to date
+	prd_end_dt DATE,
 	dwh_create_date DATETIME2 DEFAULT GETDATE()
 );
 
@@ -54,9 +54,9 @@ CREATE TABLE silver.crm_sales_details (
 	sls_ord_num NVARCHAR(50),
 	sls_prd_key NVARCHAR(50),
 	sls_cust_id INT,
-	sls_order_dt INT,
-	sls_ship_dt INT,
-	sls_due_dt INT,
+	sls_order_dt date,
+	sls_ship_dt date,
+	sls_due_dt date,
 	sls_sales INT,
 	sls_quantity INT,
 	sls_price INT,
